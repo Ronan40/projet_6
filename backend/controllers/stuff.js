@@ -1,6 +1,8 @@
 const Sauce = require('../models/sauce');
 const fs = require('fs');
 
+// Créer une sauce : 
+
 exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
@@ -13,6 +15,8 @@ exports.createSauce = (req, res, next) => {
         .catch(error => res.status(400).json({ error }));
 };
 
+// Modifier une sauce : 
+
 exports.modifySauce = (req, res, next) => {
     const sauceObject = req.file ?
         {
@@ -23,6 +27,8 @@ exports.modifySauce = (req, res, next) => {
         .then(() => res.status(200).json({ message: 'Objet modifié !' }))
         .catch(error => res.status(400).json({ error }));
 };
+
+// Supprimer une sauce :
 
 exports.deleteSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })

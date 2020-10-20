@@ -6,6 +6,8 @@ const path = require('path');
 const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 
+// Connection à MongoDB/Atlas : 
+
 mongoose.connect('mongodb+srv://SydBarrett:Project6@cluster0.f4oal.mongodb.net/<dbname>?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
@@ -16,6 +18,8 @@ mongoose.connect('mongodb+srv://SydBarrett:Project6@cluster0.f4oal.mongodb.net/<
 
 
 const app = express();
+
+// Autorise et refuse les appels HTTP : 
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
