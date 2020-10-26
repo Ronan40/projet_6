@@ -8,7 +8,7 @@ const userRoutes = require('./routes/user');
 
 // Connection à MongoDB/Atlas : 
 
-mongoose.connect('mongodb+srv://SydBarrett:Project6@cluster0.f4oal.mongodb.net/<dbname>?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGOOSE_ID,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
